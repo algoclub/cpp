@@ -1,11 +1,3 @@
-//
-//  3-13-1.cpp
-//  cpp
-//
-//  Created by Wong Zigii on 10/21/16.
-//  Copyright © 2016 ZigiiWong. All rights reserved.
-//
-
 #include <iostream>
 #include <vector>
 
@@ -20,15 +12,6 @@ int main(int argc, const char * argv[]) {
 		ivec.push_back(i);
 	}
 	
-	__SIZE_TYPE__ count = ivec.size() / 2;
-	if (count % 2 == 0) {
-		for (int i = 0; i < count; i ++) {
-			cout << ivec[i] + ivec[ivec.size() - i];
-		}
-	} else {
-		
-	}
-	
 	for (vector<int>::size_type ix = 0; ix < ivec.size() - 1; ix = ix + 2) {
 		if (ix % 2 == 0) {
 			cout << ivec[ix] + ivec[ix+1] << "\t";
@@ -40,5 +23,5 @@ int main(int argc, const char * argv[]) {
 		<< "the value is " << ivec[ivec.size() - 1] << endl;
 	}
 	
-	return 0;
+    return 0;
 }
