@@ -1,11 +1,3 @@
-//
-//  3-17.cpp
-//  cpp
-//
-//  Created by Wong Zigii on 10/22/16.
-//  Copyright © 2016 ZigiiWong. All rights reserved.
-//
-
 #include <iostream>
 #include <vector>
 
