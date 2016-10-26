@@ -72,14 +72,14 @@ int main() {
 
 应改为：
 
-````
+````cpp
 for (size_t ix = 0; ix < array_size; ++ix)
 	ia[ix] = ix;
 ````
 
 ## 4.7
 
-````
+````cpp
 const size_t array_size = 5;
 int a[array_size] = {1, 2, 3, 4, 5};
 int b[array_size];
@@ -90,7 +90,7 @@ for (int i = 0; i < array_size; i ++) {
 }
 ````
 
-````
+````cpp
 vector<int> ivec = {1, 2, 3, 4, 5};
 vector<int> avec;
 for (vector<int>::iterator iter = ivec.begin(); iter != ivec.end(); ++iter) {
@@ -101,7 +101,7 @@ for (vector<int>::iterator iter = ivec.begin(); iter != ivec.end(); ++iter) {
 
 ## 4.8
 
-````
+````cpp
 void isEqual(int* array1, int* array2, size_t size) {
 	for (int i = 0; i < size; ++i) {
 		if (array1[i] != array2[i]) {
@@ -114,7 +114,7 @@ void isEqual(int* array1, int* array2, size_t size) {
 }
 ````
 
-````
+````cpp
 void isEqual(vector<int> ivec, vector<int> ivec2) {
 	if (ivec.size() != ivec2.size()) {
 		cout << "Not Equal" << endl;
