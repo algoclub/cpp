@@ -74,8 +74,65 @@ int main() {
 
 ````
 for (size_t ix = 0; ix < array_size; ++ix)
-	    ia[ix] = ix;
+	ia[ix] = ix;
 ````
 
 ## 4.7
 
+````
+const size_t array_size = 5;
+int a[array_size] = {1, 2, 3, 4, 5};
+int b[array_size];
+for (int i = 0; i < array_size; i ++) {
+	b[i] = a[i];
+	cout << a[i] << endl;
+	cout << b[i] << endl;
+}
+````
+
+````
+vector<int> ivec = {1, 2, 3, 4, 5};
+vector<int> avec;
+for (vector<int>::iterator iter = ivec.begin(); iter != ivec.end(); ++iter) {
+	avec.push_back(*iter);
+	cout << *iter << endl;
+}
+````
+
+## 4.8
+
+````
+void isEqual(int* array1, int* array2, size_t size) {
+	for (int i = 0; i < size; ++i) {
+		if (array1[i] != array2[i]) {
+			cout << "Not equal" << endl;
+			return;
+		}
+	}
+	cout << "Equal" << endl;
+	return;
+}
+````
+
+````
+void isEqual(vector<int> ivec, vector<int> ivec2) {
+	if (ivec.size() != ivec2.size()) {
+		cout << "Not Equal" << endl;
+		return;
+	} else if (ivec.size() == 0) {
+		cout << "Vector size is 0, so these two vectors are equal.";
+		return;
+	} else {
+		vector<int>::iterator begin;
+		vector<int>::iterator begin2;
+		for (begin = ivec.begin(), begin2 = ivec2.begin(); begin != ivec.end(); ++begin, ++begin2) {
+			if (*begin != *begin2) {
+				cout << "Not equal." << endl;
+				return;
+			}
+		}
+		cout << "Equal" << endl;
+		return;
+	}
+}
+````
