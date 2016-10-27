@@ -2,7 +2,7 @@
 
 ## 4.1
 
-假设 get_size 是一个没有参数并返回 int 值的函数，下列哪些定义是非法的？为什么？
+假设 `get_size` 是一个没有参数并返回 int 值的函数，下列哪些定义是非法的？为什么？
 
 >
 ````
@@ -78,6 +78,7 @@ for (size_t ix = 0; ix < array_size; ++ix)
 ````
 
 ## 4.7
+将一个数组赋给一个数组：
 
 ````cpp
 const size_t array_size = 5;
@@ -90,6 +91,8 @@ for (int i = 0; i < array_size; i ++) {
 }
 ````
 
+将一个 vector 赋给一个 vecotr：
+
 ````cpp
 vector<int> ivec = {1, 2, 3, 4, 5};
 vector<int> avec;
@@ -100,6 +103,8 @@ for (vector<int>::iterator iter = ivec.begin(); iter != ivec.end(); ++iter) {
 ````
 
 ## 4.8
+
+判断数组是否相等：
 
 ````cpp
 void isEqual(int* array1, int* array2, size_t size) {
@@ -114,6 +119,7 @@ void isEqual(int* array1, int* array2, size_t size) {
 }
 ````
 
+判断 vector 是否相等：
 ````cpp
 void isEqual(vector<int> ivec, vector<int> ivec2) {
 	if (ivec.size() != ivec2.size()) {
@@ -136,3 +142,82 @@ void isEqual(vector<int> ivec, vector<int> ivec2) {
 	}
 }
 ````
+
+## 4.9
+
+````cpp
+const size_t array_size = 10;
+int a[array_size];
+for (int i = 0; i < array_size; i ++) {
+	a[i] = i;
+	cout << a[i] << endl;
+}
+````
+
+## 4.10
+
+	int *ip;
+	int* ip;
+
+第二种容易将 `int*` 理解为一种数据类型，且在连续声明多个变量时容易混淆。
+
+## 4.11
+
+> int* ip;
+
+合法
+ 
+> string s, *sp = 0;
+
+合法
+
+> int i; double* dp = &i;
+
+非法，不能将 int 类型对象的地址进行初始化。
+
+> int* ip, ip2;
+
+合法
+
+> const int i = 0, *p = i;
+
+合法
+ 
+> string *p = NULL;
+
+合法
+
+## 4.12
+
+无法确定，无法知道指针指向的是否为一个有效地址，或者有效的对象。
+
+## 4.13
+
+`void *` 类型指针可以保存任意对象的地址。而指向 `long` 类型的指针不能使用 `int` 类型对象进行初始化。
+
+## 4.14
+
+````cpp
+int *a = 1;
+int *p = 0;
+p = a; // 改变指针的值
+*p = 2;// 改变指针所指对象的值
+````
+## 4.15
+
+1. 引用始终指向某个对象，初始化引用如果没有指向对象是错误的。
+2. 对引用赋值是修改引用指向的值，并指针可以修改它本身，或者它指向对象的值。
+
+## 4.16
+
+````cpp
+int i = 42, j = 1024;
+int *p1 = &1, *p2 = &j;
+*p2 = *p1 * * p2;
+*p1 *= *p1;
+````
+
+1. 初始化两个 `int` 类型对象 `i`, `j`, 它们的值分别为 `42` 和 `1024`。
+2. 初始化两个指向 `int` 类型的指针，分别指向上面的 `i` 和 `j`。
+3. `j` 的值为 `42 * 1024`。
+4. `i` 的值为 `42 * 42`。
